@@ -1,19 +1,24 @@
 
+body {
+    background-color: rgba(233, 239, 246, 0.743);
+}
+
 #board {
-    width: 350px;
-    height: 420px;
+    width: 450px;
+    height: 600px;
     margin: 0 auto;
-    margin-top: 3px;
     display: flex;
     flex-wrap: wrap;
 }
-
+.panel-header i {
+    font-size: 14px;
+}
 .tile {
     /* Box */
     border: 2px solid lightgray;
     width: 60px;
     height: 60px;
-    margin: 2.5px;
+    margin: 11.5px;
 
     /* Text */
     color: black;
@@ -22,6 +27,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 15px;
 }
 
 .correct {
@@ -41,20 +47,30 @@
     color: white;
     border-color:white;
 }
-button#game_over_btn {
-    margin: 3px auto;
-    margin-top: 31px;
-    display: flex;
-    width: 387px;
-    background-color: var(--main-color);
-    flex-wrap: wrap;
-    height: 50px;
-    color: white;
-    flex-wrap: wrap;
-    font-size: 16px;
-    font-weight: bolder;
-    letter-spacing: 2px;
-}
 .select_row{
     background-color: #c9c9c9;
+}
+.panel-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    flex-direction: column;
+}
+.panel-footer {
+    margin: 0 auto;
+    width: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.panel-footer #game_over_btn {
+    width: 150px;
+    height: 30px;
+    color: black;
+    border: 1px solid;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }

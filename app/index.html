@@ -5,23 +5,24 @@
 </header>
 
 <body>
-    <div class="nav-btn">Menu</div>
     <div class="container">
-        <div class="sidebar" id="sol_menu_ids"> </div>
-
-        <div class="main-content" id="content">
+        <div class="panel-header">
             <h1>Wordle </h1>
-            <i style="font-size: 15px;float: none;">5 Karakter içeren kelimeyi girin ve ENTER tusuna basın !</i>
-            <div class="panel-wrapper">
-                <div class="panel-body">
-                    <div id="board"></div>
-                    <h1 id="answer"></h1>
-                    <button id="game_over_btn" onclick="location.reload();" class="game-over-btn">Restart</button>
-                </div>
-            </div>
-            <div id="tahta_id"></div>
+            <i>5 Karakter içeren kelimeyi girin ve ENTER tusuna basın !</i>
         </div>
+
+        <div class="panel-wrapper">
+            <div class="panel-body">
+                <div id="board"></div>
+            </div>
+        </div>
+
+        <div class="panel-footer">
+            <button id="game_over_btn" onclick="location.reload();" class="game-over-btn">Restart</button>
+        </div>
+
     </div>
 </body>
-<script type="text/javascript" src="style/index.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
 </html>
