@@ -1,20 +1,6 @@
 const d = document;
 window.R = {}
-HTMLDocument.prototype.gi = (e) => { return d.getElementById(e) };
-HTMLDocument.prototype.qs = function (selector) {
-    return this.querySelectorAll(selector);
-};
-HTMLDocument.prototype.ce = function (tag) {
-    return this.createElement(tag);
-};
-{ NodeList }
 
-NodeList.prototype.remove = function () {
-    this.forEach((item) => {
-        item.remove();
-    });
-    return null;
-};
 Element.prototype.ac = function (cls) {
     if (cls.includes(" ")) {
         cls.split(" ").forEach((v) => this.ac(v.trim()));
@@ -71,7 +57,7 @@ window.onload = function () {
 
 
 function intialize() {
-    d.gi('game_over_btn').style.display = 'none';
+    d.getElementById('game_over_btn').style.display = 'none';
     for (let r = 0; r < height; r++) {
         for (let c = 0; c < width; c++) {
             let tile = d.createElement("span");
@@ -79,7 +65,7 @@ function intialize() {
             tile.dataset.row = r;
             tile.classList.add("tile");
             tile.innerText = "";
-            d.gi("board").appendChild(tile);
+            d.getElementById("board").appendChild(tile);
         }
     }
 
@@ -91,7 +77,7 @@ function intialize() {
         if ("KeyA" <= e.code && e.code <= "KeyZ") {
             if (col < width) {
                 word_array.push(e.code[3]);
-                let currTile = d.gi(row.toString() + '-' + col.toString());
+                let currTile = d.getElementById(row.toString() + '-' + col.toString());
                 if (currTile.innerText == "") {
                     currTile.innerText = e.code[3];
                     col += 1;
@@ -101,7 +87,7 @@ function intialize() {
         else if (e.code == "Backspace") {
             word_array.pop()
             if (0 < col && col <= width) col -= 1;
-            let currTile = d.gi(row.toString() + '-' + col.toString());
+            let currTile = d.getElementById(row.toString() + '-' + col.toString());
             currTile.innerText = "";
         }
 
@@ -117,7 +103,7 @@ function intialize() {
 
         if (!gameOver && row == height) {
             alert("Kelime : " + word + " idi");
-            d.gi('game_over_btn').style.display = 'block';
+            d.getElementById('game_over_btn').style.display = 'block';
             gameOver = true;
         }
 
@@ -125,13 +111,13 @@ function intialize() {
 }
 
 function select_rows(row) {
-    d.qs(`[data-row]`).forEach(item => { item[item.dataset.row == row ? 'ac' : 'rc']('select_row') });
+    d.querySelectorAll(`[data-row]`).forEach(item => { item[item.dataset.row == row ? 'ac' : 'rc']('select_row') });
 }
 
 function update() {
     let correct = 0;
     for (let c = 0; c < width; c++) {
-        let currTile = d.gi(row.toString() + '-' + c.toString());
+        let currTile = d.getElementById(row.toString() + '-' + c.toString());
         let letter = currTile.innerText;
         if (word[c] == letter) {
             currTile.classList.add("correct");
@@ -146,7 +132,7 @@ function update() {
         if (correct == width) {
             gameOver = true;
             alert("Kelimeyi buldunuz");
-            d.gi('game_over_btn').style.display = 'block';
+            d.getElementById('game_over_btn').style.display = 'block';
         }
     }
     select_rows(row)
