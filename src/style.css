@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+    /* 
+       Performance Optimization:
+       - Removed 'transition-all' -> replaced with specific 'transition-colors' and 'transform'
+       - Removed 'backdrop-blur-sm' from tiles and keys (very expensive on 30+ elements)
+       - Simplified shadows
+    */
+    .tile {
+        @apply w-14 h-14 border-2 border-slate-700 bg-slate-800 flex items-center justify-center text-3xl font-bold uppercase select-none transition-colors duration-200 text-white rounded-lg shadow-sm;
+        /* Use will-change to hint browser for transform optimizations during animation */
+        will-change: transform, border-color, background-color;
+    }
+
+    .tile[data-state="active"] {
+        @apply border-indigo-500 shadow-md shadow-indigo-500/30 scale-105 animate-pop bg-slate-800;
+    }
+
+    .tile[data-state="correct"] {
+        @apply bg-emerald-500 border-emerald-500 text-white shadow-md shadow-emerald-500/30;
+    }
+
+    .tile[data-state="present"] {
+        @apply bg-amber-500 border-amber-500 text-white shadow-md shadow-amber-500/30;
+    }
+
+    .tile[data-state="absent"] {
+        @apply bg-slate-700 border-slate-700 text-gray-400;
+    }
+
+    .key {
+        @apply font-bold rounded-lg cursor-pointer select-none bg-slate-700 hover:bg-slate-600 active:bg-slate-500 text-white transition-colors duration-150 flex items-center justify-center shadow-sm border border-slate-600;
+        height: 58px;
+        /* Removed backdrop-blur here as well */
+    }
+
+    /* Gradients removed from keys for better repaint performance on mobile */
+    .key[data-state="correct"] {
+        @apply bg-emerald-600 border-emerald-600 hover:bg-emerald-500;
+    }
+
+    .key[data-state="present"] {
+        @apply bg-amber-600 border-amber-600 hover:bg-amber-500;
+    }
+
+    .key[data-state="absent"] {
+        @apply bg-slate-800 border-slate-800 text-gray-500 shadow-none;
+    }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Wordle - Türkçe</title>
+    <script type="module" crossorigin src="/assets/index-BPT54fcw.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-eKhkYWHb.css">
+  </head>
+  <body class="bg-gray-50 flex flex-col h-screen w-screen overflow-hidden text-gray-900 antialiased">
+    
+    <!-- Header -->
+    <header class="flex items-center justify-center h-12 border-b border-gray-300 w-full shrink-0">
+      <h1 class="text-3xl font-extrabold tracking-wider font-serif">WORDLE</h1>
+    </header>
+
+    <!-- Game Container -->
+    <main class="flex-grow flex flex-col items-center justify-center p-2 w-full max-w-lg mx-auto overflow-hidden">
+      
+      <!-- Board -->
+      <div id="board-container" class="flex items-center justify-center flex-grow min-h-0 w-full">
+         <div id="board" class="grid grid-rows-6 grid-cols-5 gap-1.5 w-full aspect-[5/6] max-h-full max-w-[350px]"></div>
+      </div>
+
+    </main>
+    
+    <!-- Keyboard -->
+    <div class="w-full max-w-lg mx-auto p-2 pb-8 shrink-0">
+        <div id="keyboard" class="w-full flex flex-col gap-2"></div>
+    </div>
+
+    <!-- Modals/Overlays can go here -->
+    <div id="modal-overlay" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-lg shadow-xl max-w-sm w-full mx-4 text-center transform transition-all scale-100">
+            <h2 id="modal-title" class="text-2xl font-bold mb-2">Oyun Bitti</h2>
+            <p id="modal-message" class="mb-6 text-gray-600"></p>
+            <button id="restart-btn" class="bg-indigo-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-indigo-700 transition w-full">
+                Tekrar Oyna
+            </button>
+        </div>
+    </div>
+
+  </body>
+</html>
